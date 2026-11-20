@@ -1,0 +1,16 @@
+{
+  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "config_revision": "2a5fe4b04645439adcd5b751366c4b18504fbfe218fd34595caeac7551f2ac35",
+  "baseline": "/home/fire/robot24-portable/runtime/profiles/commissioning-arm-registered.yaml",
+  "baseline_sha256": "abd21b8eb8314895b52a277977dc958f7fa23e1c72d1763584d87a3e60a4cb5d",
+  "registration_mode": "operator_confirmed_configuration",
+  "registered_groups": [
+    "arm",
+    "base",
+    "gripper"
+  ],
+  "arm_baseline_precheck_passed": true,
+  "device_io_performed": false,
+  "hardware_started": false,
+  "token_and_state_preserved": true
+}
