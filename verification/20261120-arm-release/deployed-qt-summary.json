@@ -1,0 +1,31 @@
+{
+  "scope": "qt_installed_ros_mock",
+  "passed": true,
+  "physical_acceptance": false,
+  "hardware_initialized": false,
+  "domain_id": 163,
+  "middleware": "rmw_cyclonedds_cpp",
+  "joint_max_displacement": {
+    "wrist_roll_joint": 0.011357543407612865,
+    "left_gripper_finger_joint": 0.00042026219199999996,
+    "shoulder_yaw_joint": 3.0328517575375826e-06,
+    "elbow_pitch_joint": 5.463828921747904e-06,
+    "wrist_pitch_joint": 1.5243759933836198e-05,
+    "wrist_yaw_joint": 2.4227730009369533e-06,
+    "shoulder_pitch_joint": 1.1416319414814247e-06
+  },
+  "presets": [
+    "arm"
+  ],
+  "hold_ms": 500,
+  "initial_emergency": false,
+  "unselected_faults": false,
+  "samples": 4759,
+  "wheel_motion": false,
+  "arm_motion": true,
+  "gripper_motion": true,
+  "neutral_stop": true,
+  "motion_latency_sec": 0.096,
+  "resources_remaining": 0,
+  "process_crashes": []
+}

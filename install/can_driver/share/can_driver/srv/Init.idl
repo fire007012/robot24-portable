@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from can_driver/srv/Init.srv
+// generated code does not contain a copyright notice
+
+
+module can_driver {
+  module srv {
+    struct Init_Request {
+      @verbatim (language="comment", text=
+        "SocketCAN 设备名（如 canable0/vcan0）")
+      string device;
+
+      @verbatim (language="comment", text=
+        "是否让当前 socket 接收自己发出的帧（测试场景常用）")
+      boolean loopback;
+    };
+    struct Init_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "失败时返回原因")
+      string message;
+    };
+  };
+};

@@ -1,0 +1,243 @@
+#ifndef CANPROTOCOL_H
+#define CANPROTOCOL_H
+
+#include <cstdint>
+#include <vector>
+
+#include "MotorID.h"
+/**
+ * @brief 协议解析的抽象基类 (接口)
+ */
+class CanProtocol {
+public:
+    /**
+     * @brief 电机运行模式
+     *
+     * Position 代表位置环（如点到点控制），Velocity 代表速度环（连续转速）。
+     * CSP 代表周期同步位置模式（Cyclic Synchronous Position）。
+     * 若具体协议支持更多模式，可以在派生类中转译后再调用 setMode。
+     */
+    enum class MotorMode : uint8_t {
+        Position = 0,
+        Velocity = 1,
+        CSP = 5,
+    };
+
+    virtual ~CanProtocol() = default;
+
+    /**
+     * @brief 切换指定电机的工作模式
+     * @param motorId 电机或节点在总线中的标识，通常对应并行编号
+     * @param mode 目标工作模式
+     *
+     * 实现类应负责发送对应的指令并缓存当前模式，以便调用方读取。
+     */
+    virtual bool setMode(MotorID motorId, MotorMode mode) = 0;
+
+    /**
+     * @brief 设置目标速度
+     * @param motorId 目标电机 ID
+     * @param velocity 协议规定的速度值（单位由协议决定）
+     *
+     * 说明：
+     * - 该接口参数本身仍是“协议/后端内部单位”的整数值；
+     * - 在 can_driver 标准硬件链路里，上游控制器与 direct topic 一般使用 SI 语义
+     *   （速度用 rad/s，位置用 rad）；
+     * - CanDriverHW 会先按 joint 的 velocity_scale / position_scale 把 SI 值换算成
+     *   协议整数值，再调用具体协议后端。
+     *
+     * 因此，这里的 velocity 不是用户直接输入的 Float64 速度值，而是经过缩放后的内部值。
+     */
+    virtual bool setVelocity(MotorID motorId, int32_t velocity) = 0;
+
+    /**
+     * @brief 设置目标加速度
+     * @param motorId 目标电机 ID
+     * @param acceleration 协议规定的加速度值
+     *
+     * 某些协议仅缓存该值而不实际下发命令，接口仍然定义以保持一致性。
+     */
+    virtual bool setAcceleration(MotorID motorId, int32_t acceleration) = 0;
+
+    /**
+     * @brief 设置目标减速度
+     * @param motorId 目标电机 ID
+     * @param deceleration 协议规定的减速度值
+     */
+    virtual bool setDeceleration(MotorID motorId, int32_t deceleration) = 0;
+
+    /**
+     * @brief 设置目标位置
+     * @param motorId 目标电机 ID
+     * @param position 位置值（编码器计数或角度，由协议决定）
+     *
+     * 通常用于位置模式，速度模式可以选择忽略或复用该接口实现为位置跟随。
+     */
+    virtual bool setPosition(MotorID motorId, int32_t position) = 0;
+
+    /**
+     * @brief 快写位置命令（用于 CSP 模式）
+     * @param motorId 电机 ID
+     * @param position 目标位置（协议原始单位）
+     * @return 成功返回 true，失败返回 false
+     * @note 使用 CMD=0x05 快写命令，无需等待返回确认
+     */
+    virtual bool quickSetPosition(MotorID motorId, int32_t position) = 0;
+
+    /**
+     * @brief 使能指定电机
+     * @param motorId 目标电机 ID
+     *
+     * 多数协议需要写入控制字或状态字，本接口不做具体约定。
+     */
+    virtual bool Enable(MotorID motorId) = 0;
+
+    /**
+     * @brief 失能指定电机
+     * @param motorId 目标电机 ID
+     *
+     * 常用于关闭驱动器输出或进入待机。
+     */
+    virtual bool Disable(MotorID motorId) = 0;
+
+    /**
+     * @brief 紧急停止
+     * @param motorId 目标电机 ID
+     *
+     * 若协议支持广播停机，可忽略 motorId 并一次性停止全部节点。
+     */
+    virtual bool Stop(MotorID motorId) = 0;
+
+    /**
+     * @brief 清除或复位当前故障状态
+     * @param motorId 目标电机 ID
+     * @return 协议支持并下发成功返回 true；不支持或失败返回 false
+     *
+     * 该接口语义必须与 Enable/Disable 分离，调用方不得再用 Enable 伪装恢复流程。
+     */
+    virtual bool ResetFault(MotorID motorId)
+    {
+        (void)motorId;
+        return false;
+    }
+
+    /**
+     * @brief 返回缓存的实际位置
+     * @param motorId 目标电机 ID
+     * @return 位置值（协议单位）
+     */
+    [[nodiscard]] virtual int64_t getPosition(MotorID motorId) const = 0;
+
+    /**
+     * @brief 返回缓存的实际电流
+     * @param motorId 目标电机 ID
+     * @return 电流数值（协议单位）
+     */
+    [[nodiscard]] virtual int16_t getCurrent(MotorID motorId) const = 0;
+
+    /**
+     * @brief 返回缓存的实际速度
+     * @param motorId 目标电机 ID
+     * @return 速度数值（协议单位）
+     */
+    [[nodiscard]] virtual int32_t getVelocity(MotorID motorId) const = 0;
+
+    /**
+     * @brief 返回缓存的使能状态（未实现协议默认 false）。
+     */
+    [[nodiscard]] virtual bool isEnabled(MotorID motorId) const
+    {
+        (void)motorId;
+        return false;
+    }
+
+    /**
+     * @brief 返回缓存的故障状态（未实现协议默认 false）。
+     */
+    [[nodiscard]] virtual bool hasFault(MotorID motorId) const
+    {
+        (void)motorId;
+        return false;
+    }
+
+    /**
+     * @brief 设置设备侧位置限位（物理限位）
+     * @param motorId 目标电机 ID
+     * @param minPositionRaw 下限（协议原始单位）
+     * @param maxPositionRaw 上限（协议原始单位）
+     * @param enable 是否使能设备侧限位
+     * @return 协议支持并发送成功返回 true，否则 false
+     */
+    virtual bool configurePositionLimits(MotorID motorId,
+                                         int32_t minPositionRaw,
+                                         int32_t maxPositionRaw,
+                                         bool enable)
+    {
+        (void)motorId;
+        (void)minPositionRaw;
+        (void)maxPositionRaw;
+        (void)enable;
+        return false;
+    }
+
+    /**
+     * @brief 设置位置零点偏置（协议原始单位）
+     * @param motorId 目标电机 ID
+     * @param offsetRaw 偏置值
+     * @return 协议支持并发送成功返回 true，否则 false
+     */
+    virtual bool setPositionOffset(MotorID motorId, int32_t offsetRaw)
+    {
+        (void)motorId;
+        (void)offsetRaw;
+        return false;
+    }
+
+    /**
+     * @brief 读取设备侧位置零偏（协议原始单位）
+     * @param motorId 目标电机 ID
+     * @param offsetRaw 输出偏置值
+     * @return 读取成功返回 true，否则 false
+     */
+    virtual bool readPositionOffset(MotorID motorId, int32_t* offsetRaw)
+    {
+        (void)motorId;
+        (void)offsetRaw;
+        return false;
+    }
+
+    /**
+     * @brief 读取设备序列号（协议原始 32 位值）
+     * @param motorId 目标电机 ID
+     * @param serialNumber 输出序列号
+     * @return 读取成功返回 true，否则 false
+     */
+    virtual bool readSerialNumber(MotorID motorId, uint32_t* serialNumber)
+    {
+        (void)motorId;
+        (void)serialNumber;
+        return false;
+    }
+
+    /**
+     * @brief 提交参数到设备 EEPROM/非易失存储
+     * @param motorId 目标电机 ID
+     * @return 提交成功返回 true，否则 false
+     */
+    virtual bool persistParameters(MotorID motorId)
+    {
+        (void)motorId;
+        return false;
+    }
+
+    /**
+     * @brief 初始化电机信息刷新机制
+     * @param motorIds 需要周期刷新状态的电机 ID 列表
+     *
+     * 实现类应当使用 boost::asio 或其它定时机制，以约 1ms 的周期轮询
+     * 底层硬件并更新缓存。若列表为空则停止轮询。
+     */
+    virtual void initializeMotorRefresh(const std::vector<MotorID> &motorIds) = 0;
+};
+
+#endif // CANPROTOCOL_H

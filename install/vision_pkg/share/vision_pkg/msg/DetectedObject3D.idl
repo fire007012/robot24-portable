@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vision_pkg/msg/DetectedObject3D.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module vision_pkg {
+  module msg {
+    struct DetectedObject3D {
+      string class_name;
+
+      int32 id;
+
+      float confidence;
+
+      geometry_msgs::msg::PoseStamped pose;
+    };
+  };
+};

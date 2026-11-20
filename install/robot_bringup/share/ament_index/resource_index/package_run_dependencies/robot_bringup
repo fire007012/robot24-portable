@@ -1,0 +1,1 @@
+launch_ros;ament_index_python;robot_hardware;car_urdf;car_control;flipper_control;car_moveit_config;mobility_control;arm_control;robot_state_publisher;xacro;python3-yaml;rclpy;sensor_msgs;std_msgs;controller_manager_msgs;robot_safety;tf2_msgs;rcl_interfaces

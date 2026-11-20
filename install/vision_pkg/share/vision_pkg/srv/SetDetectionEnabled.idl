@@ -1,0 +1,37 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from vision_pkg/srv/SetDetectionEnabled.srv
+// generated code does not contain a copyright notice
+
+
+module vision_pkg {
+  module srv {
+    struct SetDetectionEnabled_Request {
+      boolean enable_all;
+
+      boolean enable_yolo;
+
+      boolean enable_qrcode;
+
+      boolean enable_motion;
+
+      boolean enable_obstacle_warning;
+
+      boolean enable_center_distance;
+    };
+    struct SetDetectionEnabled_Response {
+      boolean success;
+
+      string message;
+
+      boolean yolo_enabled;
+
+      boolean qrcode_enabled;
+
+      boolean motion_enabled;
+
+      boolean obstacle_warning_enabled;
+
+      boolean center_distance_enabled;
+    };
+  };
+};

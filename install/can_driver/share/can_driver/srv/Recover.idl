@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from can_driver/srv/Recover.srv
+// generated code does not contain a copyright notice
+
+
+module can_driver {
+  module srv {
+    struct Recover_Request {
+      @verbatim (language="comment", text=
+        "目标电机 ID；0xFFFF 表示全局恢复")
+      uint16 motor_id;
+    };
+    struct Recover_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "失败时返回原因")
+      string message;
+    };
+  };
+};

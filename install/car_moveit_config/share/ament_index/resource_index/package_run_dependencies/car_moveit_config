@@ -1,0 +1,1 @@
+rclcpp;moveit_core;pluginlib;car_urdf;ament_index_python;launch_ros;xacro;python3-yaml;moveit_ros_move_group;moveit_planners_ompl;moveit_kinematics;moveit_simple_controller_manager

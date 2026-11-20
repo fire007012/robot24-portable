@@ -1,0 +1,22 @@
+{
+  "RobotCanopenSystem": {
+    "plugin": "canopen_ros2_control/RobotSystem",
+    "hardware": {
+      "safety_domain": "robot",
+      "bus_config": "/tmp/robot24-arm-check/candidate/install/robot_canopen_config/share/robot_canopen_config/config/bus.yml",
+      "master_config": "/tmp/robot24-arm-check/candidate/install/robot_canopen_config/share/robot_canopen_config/config/master.dcf",
+      "can_interface_name": "can1",
+      "master_bin": "\"\""
+    },
+    "interfaces": []
+  },
+  "CanDriverSystem": {
+    "plugin": "can_driver/CanDriverSystem",
+    "hardware": {
+      "safety_domain": "robot"
+    },
+    "interfaces": [
+      "can0"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+bool enable_all
+bool enable_yolo
+bool enable_qrcode
+bool enable_motion
+bool enable_obstacle_warning
+bool enable_center_distance

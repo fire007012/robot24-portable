@@ -1,0 +1,65 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "name": "can_topology",
+      "ok": true,
+      "code": null,
+      "hint": ""
+    },
+    {
+      "name": "build_version",
+      "ok": true,
+      "code": null,
+      "hint": ""
+    },
+    {
+      "name": "setup",
+      "ok": true,
+      "code": null,
+      "hint": ""
+    },
+    {
+      "name": "release_manifest",
+      "ok": true,
+      "code": null,
+      "hint": ""
+    },
+    {
+      "name": "real_baseline",
+      "ok": false,
+      "code": "BASELINE",
+      "hint": "现场 CANopen 身份/基线尚未完成登记，涉及组: arm"
+    },
+    {
+      "name": "device:can0",
+      "ok": false,
+      "code": "DEVICE",
+      "hint": "核对 CAN 接口类型、设备、权限及部署档案"
+    },
+    {
+      "name": "device:can1",
+      "ok": false,
+      "code": "DEVICE",
+      "hint": "核对 CAN 接口类型、设备、权限及部署档案"
+    },
+    {
+      "name": "port:9090",
+      "ok": true,
+      "code": null,
+      "hint": ""
+    },
+    {
+      "name": "port:18080",
+      "ok": true,
+      "code": null,
+      "hint": ""
+    },
+    {
+      "name": "ros_packages",
+      "ok": true,
+      "code": null,
+      "hint": ""
+    }
+  ]
+}

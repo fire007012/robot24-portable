@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robot_hardware/srv/GroupOperation.srv
+// generated code does not contain a copyright notice
+
+
+module robot_hardware {
+  module srv {
+    struct GroupOperation_Request {
+      sequence<string> groups;
+
+      string operation;
+
+      string resource;
+    };
+    struct GroupOperation_Response {
+      boolean success;
+
+      string operation_id;
+
+      string message;
+    };
+  };
+};

@@ -1,0 +1,1 @@
+rclcpp;sensor_msgs;std_msgs;geometry_msgs;cv_bridge;image_transport;launch_ros;ament_index_python;python3-opencv;python3-numpy;rosidl_default_runtime;rclpy

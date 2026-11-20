@@ -1,0 +1,13 @@
+# Local credentials
+*.token
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime state, logs and caches
+/runtime/state/
+__pycache__/
+*.py[cod]
+*.log

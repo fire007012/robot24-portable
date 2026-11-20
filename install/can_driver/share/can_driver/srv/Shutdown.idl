@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from can_driver/srv/Shutdown.srv
+// generated code does not contain a copyright notice
+
+
+module can_driver {
+  module srv {
+    struct Shutdown_Request {
+      @verbatim (language="comment", text=
+        "true=强制关闭（忽略部分状态检查）")
+      boolean force;
+    };
+    struct Shutdown_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "失败时返回原因")
+      string message;
+    };
+  };
+};

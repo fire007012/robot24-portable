@@ -1,0 +1,44 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from can_driver/action/HomeMotor.action
+// generated code does not contain a copyright notice
+
+
+module can_driver {
+  module action {
+    @verbatim (language="comment", text=
+      "goal")
+    struct HomeMotor_Goal {
+      @verbatim (language="comment", text=
+        "目标电机 ID")
+      uint16 motor_id;
+
+      @verbatim (language="comment", text=
+        "true=正向找零，false=反向找零")
+      boolean search_positive;
+
+      @verbatim (language="comment", text=
+        "找零超时（秒）")
+      double timeout;
+    };
+    @verbatim (language="comment", text=
+      "result")
+    struct HomeMotor_Result {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "失败原因")
+      string message;
+    };
+    @verbatim (language="comment", text=
+      "feedback")
+    struct HomeMotor_Feedback {
+      @verbatim (language="comment", text=
+        "0.0~1.0")
+      double progress;
+
+      @verbatim (language="comment", text=
+        "当前位置信息")
+      double current_position;
+    };
+  };
+};

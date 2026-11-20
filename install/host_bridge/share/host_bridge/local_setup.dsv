@@ -1,0 +1,2 @@
+source;share/host_bridge/environment/ament_prefix_path.sh
+source;share/host_bridge/environment/path.sh

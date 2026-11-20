@@ -1,0 +1,35 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from can_driver/srv/ApplyLimits.srv
+// generated code does not contain a copyright notice
+
+
+module can_driver {
+  module srv {
+    struct ApplyLimits_Request {
+      uint16 motor_id;
+
+      double min_position_rad;
+
+      double max_position_rad;
+
+      boolean use_urdf_limits;
+
+      boolean apply_to_motor;
+
+      boolean require_current_inside_limits;
+    };
+    struct ApplyLimits_Response {
+      boolean success;
+
+      string message;
+
+      double active_zero_offset_rad;
+
+      double applied_min_rad;
+
+      double applied_max_rad;
+
+      double current_position_rad;
+    };
+  };
+};

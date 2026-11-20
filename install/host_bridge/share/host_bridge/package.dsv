@@ -1,0 +1,4 @@
+source;share/host_bridge/local_setup.bash
+source;share/host_bridge/local_setup.dsv
+source;share/host_bridge/local_setup.sh
+source;share/host_bridge/local_setup.zsh

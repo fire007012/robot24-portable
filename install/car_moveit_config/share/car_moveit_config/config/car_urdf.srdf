@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<robot name="car_urdf">
+  <group name="gripper">
+    <joint name="left_gripper_finger_joint" />
+  </group>
+  <group name="arm">
+    <chain base_link="base_link" tip_link="grasp_tcp" />
+  </group>
+  <group_state name="home" group="arm">
+    <joint name="elbow_pitch_joint" value="2.7515" />
+    <joint name="shoulder_pitch_joint" value="-0.877" />
+    <joint name="shoulder_yaw_joint" value="0" />
+    <joint name="wrist_pitch_joint" value="0.1677" />
+    <joint name="wrist_roll_joint" value="0" />
+    <joint name="wrist_yaw_joint" value="-0.1674" />
+  </group_state>
+  <group_state name="zero" group="arm">
+    <joint name="elbow_pitch_joint" value="0" />
+    <joint name="shoulder_pitch_joint" value="0" />
+    <joint name="shoulder_yaw_joint" value="0" />
+    <joint name="wrist_pitch_joint" value="0" />
+    <joint name="wrist_roll_joint" value="0" />
+    <joint name="wrist_yaw_joint" value="0" />
+  </group_state>
+  <group_state name="ready" group="arm">
+    <joint name="elbow_pitch_joint" value="2.2334" />
+    <joint name="shoulder_pitch_joint" value="-0.227" />
+    <joint name="shoulder_yaw_joint" value="0" />
+    <joint name="wrist_pitch_joint" value="0.2106" />
+    <joint name="wrist_roll_joint" value="0" />
+    <joint name="wrist_yaw_joint" value="0" />
+  </group_state>
+  <group_state name="ReadyToCatch" group="arm">
+    <joint name="elbow_pitch_joint" value="1.7320" />
+    <joint name="shoulder_pitch_joint" value="0.2681" />
+    <joint name="shoulder_yaw_joint" value="0" />
+    <joint name="wrist_pitch_joint" value="1.1480" />
+    <joint name="wrist_roll_joint" value="0" />
+    <joint name="wrist_yaw_joint" value="0" />
+  </group_state>
+  <group_state name="ReadyToScan" group="arm">
+    <joint name="elbow_pitch_joint" value="2.4749" />
+    <joint name="shoulder_pitch_joint" value="-0.2262" />
+    <joint name="shoulder_yaw_joint" value="0" />
+    <joint name="wrist_pitch_joint" value="-1.0357" />
+    <joint name="wrist_roll_joint" value="0" />
+    <joint name="wrist_yaw_joint" value="0" />
+  </group_state>
+  <end_effector name="gripper_ee" parent_link="tool0" group="gripper" parent_group="arm" />
+  <passive_joint name="left_front_wheel_joint" />
+  <passive_joint name="left_rear_wheel_joint" />
+  <passive_joint name="right_front_wheel_joint" />
+  <passive_joint name="right_rear_wheel_joint" />
+  <passive_joint name="right_gripper_finger_joint" />
+  <passive_joint name="left_front_wheel_joint" />
+  <passive_joint name="left_rear_wheel_joint" />
+  <passive_joint name="right_front_wheel_joint" />
+  <passive_joint name="right_rear_wheel_joint" />
+  <disable_collisions link1="base_link" link2="big_course_part" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="camera" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="left_ahead_arm" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="left_ahead_wheel" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="left_back_arm" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="left_back_wheel" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="lidar" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="right_ahead_arm" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="right_ahead_wheel" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="right_back_arm" reason="Adjacent" />
+  <disable_collisions link1="base_link" link2="right_back_wheel" reason="Adjacent" />
+  <disable_collisions link1="big_course_part" link2="big_pitch_part" reason="Adjacent" />
+  <disable_collisions link1="big_course_part" link2="camera" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="hands_pitch_part" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="left_ahead_arm" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="left_ahead_wheel" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="left_back_arm" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="left_back_wheel" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="lidar" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="right_ahead_arm" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="big_course_part" link2="small_pitch_part" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="camera" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="hands_pitch_part" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="hands_roll_part" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="handshands_course_part" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="left_ahead_wheel" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="left_back_wheel" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="lidar" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="big_pitch_part" link2="small_pitch_part" reason="Adjacent" />
+  <disable_collisions link1="camera" link2="hands_pitch_part" reason="Never" />
+  <disable_collisions link1="camera" link2="hands_roll_part" reason="Never" />
+  <disable_collisions link1="camera" link2="handshands_course_part" reason="Never" />
+  <disable_collisions link1="camera" link2="left_ahead_arm" reason="Never" />
+  <disable_collisions link1="camera" link2="left_ahead_wheel" reason="Never" />
+  <disable_collisions link1="camera" link2="left_back_arm" reason="Never" />
+  <disable_collisions link1="camera" link2="left_back_wheel" reason="Never" />
+  <disable_collisions link1="camera" link2="lidar" reason="Never" />
+  <disable_collisions link1="camera" link2="right_ahead_arm" reason="Never" />
+  <disable_collisions link1="camera" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="camera" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="camera" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="camera" link2="small_pitch_part" reason="Never" />
+  <disable_collisions link1="camera" link2="zhua1" reason="Never" />
+  <disable_collisions link1="camera" link2="zhua2" reason="Never" />
+  <disable_collisions link1="hands_pitch_part" link2="hands_roll_part" reason="Adjacent" />
+  <disable_collisions link1="hands_pitch_part" link2="handshands_course_part" reason="Never" />
+  <disable_collisions link1="hands_pitch_part" link2="left_ahead_arm" reason="Never" />
+  <disable_collisions link1="hands_pitch_part" link2="left_ahead_wheel" reason="Never" />
+  <disable_collisions link1="hands_pitch_part" link2="lidar" reason="Never" />
+  <disable_collisions link1="hands_pitch_part" link2="small_pitch_part" reason="Adjacent" />
+  <disable_collisions link1="hands_pitch_part" link2="zhua1" reason="Never" />
+  <disable_collisions link1="hands_pitch_part" link2="zhua2" reason="Never" />
+  <disable_collisions link1="hands_roll_part" link2="handshands_course_part" reason="Adjacent" />
+  <disable_collisions link1="hands_roll_part" link2="left_ahead_arm" reason="Never" />
+  <disable_collisions link1="hands_roll_part" link2="left_ahead_wheel" reason="Never" />
+  <disable_collisions link1="hands_roll_part" link2="lidar" reason="Never" />
+  <disable_collisions link1="hands_roll_part" link2="zhua1" reason="Never" />
+  <disable_collisions link1="hands_roll_part" link2="zhua2" reason="Never" />
+  <disable_collisions link1="handshands_course_part" link2="left_ahead_wheel" reason="Never" />
+  <disable_collisions link1="handshands_course_part" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="handshands_course_part" link2="zhua1" reason="Adjacent" />
+  <disable_collisions link1="handshands_course_part" link2="zhua2" reason="Adjacent" />
+  <disable_collisions link1="left_ahead_arm" link2="left_back_arm" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="left_back_wheel" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="lidar" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="right_ahead_arm" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="zhua1" reason="Never" />
+  <disable_collisions link1="left_ahead_arm" link2="zhua2" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="left_back_arm" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="left_back_wheel" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="lidar" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="right_ahead_arm" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="small_pitch_part" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="zhua1" reason="Never" />
+  <disable_collisions link1="left_ahead_wheel" link2="zhua2" reason="Never" />
+  <disable_collisions link1="left_back_arm" link2="lidar" reason="Never" />
+  <disable_collisions link1="left_back_arm" link2="right_ahead_arm" reason="Never" />
+  <disable_collisions link1="left_back_arm" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="left_back_arm" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="left_back_arm" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="left_back_wheel" link2="lidar" reason="Never" />
+  <disable_collisions link1="left_back_wheel" link2="right_ahead_arm" reason="Never" />
+  <disable_collisions link1="left_back_wheel" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="left_back_wheel" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="left_back_wheel" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="left_back_wheel" link2="zhua1" reason="Never" />
+  <disable_collisions link1="left_back_wheel" link2="zhua2" reason="Never" />
+  <disable_collisions link1="lidar" link2="right_ahead_arm" reason="Never" />
+  <disable_collisions link1="lidar" link2="right_ahead_wheel" reason="Never" />
+  <disable_collisions link1="lidar" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="lidar" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="lidar" link2="small_pitch_part" reason="Never" />
+  <disable_collisions link1="lidar" link2="zhua1" reason="Never" />
+  <disable_collisions link1="lidar" link2="zhua2" reason="Never" />
+  <disable_collisions link1="right_ahead_arm" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="right_ahead_arm" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="right_ahead_arm" link2="zhua1" reason="Never" />
+  <disable_collisions link1="right_ahead_wheel" link2="right_back_arm" reason="Never" />
+  <disable_collisions link1="right_ahead_wheel" link2="right_back_wheel" reason="Never" />
+  <disable_collisions link1="right_ahead_wheel" link2="small_pitch_part" reason="Never" />
+  <disable_collisions link1="right_ahead_wheel" link2="zhua1" reason="Never" />
+  <disable_collisions link1="right_ahead_wheel" link2="zhua2" reason="Never" />
+  <disable_collisions link1="right_back_wheel" link2="zhua1" reason="Never" />
+  <disable_collisions link1="right_back_wheel" link2="zhua2" reason="Never" />
+  <disable_collisions link1="small_pitch_part" link2="zhua1" reason="Never" />
+  <disable_collisions link1="small_pitch_part" link2="zhua2" reason="Never" />
+  <disable_collisions link1="zhua1" link2="zhua2" reason="Never" />
+</robot>

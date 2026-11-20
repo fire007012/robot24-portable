@@ -1,0 +1,7 @@
+uint16 motor_id                 # 目标电机ID
+float64 zero_offset_rad         # 零点偏置（rad，按 joint 正方向）
+bool use_current_position_as_zero  # true: 忽略 zero_offset_rad，按当前实际位置自动归零
+float64 min_position_rad        # 手工下限（rad）
+float64 max_position_rad        # 手工上限（rad）
+bool use_urdf_limits            # true: 从URDF读取限位并叠加偏置；false: 使用上面手工值
+bool apply_to_motor             # true: 下发到电机物理限位寄存器

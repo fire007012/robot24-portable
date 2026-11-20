@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from vision_pkg/msg/ObstacleWarning.msg
+// generated code does not contain a copyright notice
+
+
+module vision_pkg {
+  module msg {
+    struct ObstacleWarning {
+      float left_dist;
+
+      float center_dist;
+
+      float right_dist;
+
+      boolean left_warn;
+
+      boolean center_warn;
+
+      boolean right_warn;
+    };
+  };
+};

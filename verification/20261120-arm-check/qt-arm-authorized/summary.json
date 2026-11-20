@@ -1,0 +1,7 @@
+{
+  "scope": "qt_installed_ros_mock",
+  "passed": false,
+  "physical_acceptance": false,
+  "hardware_initialized": false,
+  "domain_id": 197
+}

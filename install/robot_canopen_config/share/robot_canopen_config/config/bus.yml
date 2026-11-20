@@ -1,0 +1,558 @@
+options:
+  dcf_path: .
+  heartbeat_multiplier: 3.0
+  retry_factor: 0
+master:
+  node_id: 127
+  driver: ros2_canopen::MasterDriver
+  package: canopen_master_driver
+  heartbeat_producer: 500
+  sync_period: 5000
+  sync_overflow: 0
+  boot_timeout: 5000
+left_front_arm_joint:
+  node_id: 1
+  dcf: YiyouServo_V1.4.dcfgen.eds
+  driver: ros2_canopen::Cia402Driver
+  package: canopen_402_driver
+  period: 5
+  sdo_timeout_ms: 100
+  boot_timeout_ms: 5000
+  non_transmit_timeout: 1000
+  motion_safety: true
+  enable_eyou_zero_mode_support_fallback: true
+  switching_state: 4
+  managed_by_ros2_control: true
+  perform_homing_on_init: false
+  feedback_timeout_ms: 100
+  ip_target_mirror: false
+  heartbeat_producer: 500
+  scale_pos_to_dev: 3160404.6401925473
+  scale_pos_from_dev: 3.1641517901931543e-07
+  scale_vel_to_dev: 3160404.6401925473
+  scale_vel_from_dev: 3.1641517901931543e-07
+  position_mode: 8
+  velocity_mode: 9
+  rpdo:
+    1:
+      enabled: true
+      cob_id: 513
+      transmission: 1
+      mapping:
+      - index: 24640
+        sub_index: 0
+      - index: 24698
+        sub_index: 0
+      - index: 24672
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 769
+      transmission: 1
+      mapping:
+      - index: 24769
+        sub_index: 1
+    3:
+      enabled: true
+      cob_id: 1025
+      transmission: 1
+      mapping:
+      - index: 24831
+        sub_index: 0
+    4:
+      enabled: false
+      cob_id: 1281
+      transmission: 1
+      mapping: []
+  tpdo:
+    1:
+      enabled: true
+      cob_id: 385
+      transmission: 1
+      mapping:
+      - index: 24641
+        sub_index: 0
+      - index: 24676
+        sub_index: 0
+      - index: 24673
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 641
+      transmission: 1
+      mapping:
+      - index: 24684
+        sub_index: 0
+      - index: 24695
+        sub_index: 0
+    3:
+      enabled: false
+      cob_id: 897
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1153
+      transmission: 1
+      mapping: []
+  sdo:
+  - index: 24672
+    sub_index: 0
+    value: 9
+  - index: 24770
+    sub_index: 1
+    value: 5
+right_front_arm_joint:
+  node_id: 2
+  dcf: YiyouServo_V1.4.dcfgen.eds
+  driver: ros2_canopen::Cia402Driver
+  package: canopen_402_driver
+  period: 5
+  sdo_timeout_ms: 100
+  boot_timeout_ms: 5000
+  non_transmit_timeout: 1000
+  motion_safety: true
+  enable_eyou_zero_mode_support_fallback: true
+  switching_state: 4
+  managed_by_ros2_control: true
+  perform_homing_on_init: false
+  feedback_timeout_ms: 100
+  ip_target_mirror: false
+  heartbeat_producer: 500
+  scale_pos_to_dev: 3160404.6401925473
+  scale_pos_from_dev: 3.1641517901931543e-07
+  scale_vel_to_dev: 3160404.6401925473
+  scale_vel_from_dev: 3.1641517901931543e-07
+  position_mode: 8
+  velocity_mode: 9
+  rpdo:
+    1:
+      enabled: true
+      cob_id: 514
+      transmission: 1
+      mapping:
+      - index: 24640
+        sub_index: 0
+      - index: 24698
+        sub_index: 0
+      - index: 24672
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 770
+      transmission: 1
+      mapping:
+      - index: 24769
+        sub_index: 1
+    3:
+      enabled: true
+      cob_id: 1026
+      transmission: 1
+      mapping:
+      - index: 24831
+        sub_index: 0
+    4:
+      enabled: false
+      cob_id: 1282
+      transmission: 1
+      mapping: []
+  tpdo:
+    1:
+      enabled: true
+      cob_id: 386
+      transmission: 1
+      mapping:
+      - index: 24641
+        sub_index: 0
+      - index: 24676
+        sub_index: 0
+      - index: 24673
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 642
+      transmission: 1
+      mapping:
+      - index: 24684
+        sub_index: 0
+      - index: 24695
+        sub_index: 0
+    3:
+      enabled: false
+      cob_id: 898
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1154
+      transmission: 1
+      mapping: []
+  sdo:
+  - index: 24672
+    sub_index: 0
+    value: 9
+  - index: 24770
+    sub_index: 1
+    value: 5
+left_rear_arm_joint:
+  node_id: 3
+  dcf: YiyouServo_V1.4.dcfgen.eds
+  driver: ros2_canopen::Cia402Driver
+  package: canopen_402_driver
+  period: 5
+  sdo_timeout_ms: 100
+  boot_timeout_ms: 5000
+  non_transmit_timeout: 1000
+  motion_safety: true
+  enable_eyou_zero_mode_support_fallback: true
+  switching_state: 4
+  managed_by_ros2_control: true
+  perform_homing_on_init: false
+  feedback_timeout_ms: 100
+  ip_target_mirror: false
+  heartbeat_producer: 500
+  scale_pos_to_dev: 3160404.6401925473
+  scale_pos_from_dev: 3.1641517901931543e-07
+  scale_vel_to_dev: 3160404.6401925473
+  scale_vel_from_dev: 3.1641517901931543e-07
+  position_mode: 8
+  velocity_mode: 9
+  rpdo:
+    1:
+      enabled: true
+      cob_id: 515
+      transmission: 1
+      mapping:
+      - index: 24640
+        sub_index: 0
+      - index: 24698
+        sub_index: 0
+      - index: 24672
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 771
+      transmission: 1
+      mapping:
+      - index: 24769
+        sub_index: 1
+    3:
+      enabled: true
+      cob_id: 1027
+      transmission: 1
+      mapping:
+      - index: 24831
+        sub_index: 0
+    4:
+      enabled: false
+      cob_id: 1283
+      transmission: 1
+      mapping: []
+  tpdo:
+    1:
+      enabled: true
+      cob_id: 387
+      transmission: 1
+      mapping:
+      - index: 24641
+        sub_index: 0
+      - index: 24676
+        sub_index: 0
+      - index: 24673
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 643
+      transmission: 1
+      mapping:
+      - index: 24684
+        sub_index: 0
+      - index: 24695
+        sub_index: 0
+    3:
+      enabled: false
+      cob_id: 899
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1155
+      transmission: 1
+      mapping: []
+  sdo:
+  - index: 24672
+    sub_index: 0
+    value: 9
+  - index: 24770
+    sub_index: 1
+    value: 5
+right_rear_arm_joint:
+  node_id: 4
+  dcf: YiyouServo_V1.4.dcfgen.eds
+  driver: ros2_canopen::Cia402Driver
+  package: canopen_402_driver
+  period: 5
+  sdo_timeout_ms: 100
+  boot_timeout_ms: 5000
+  non_transmit_timeout: 1000
+  motion_safety: true
+  enable_eyou_zero_mode_support_fallback: true
+  switching_state: 4
+  managed_by_ros2_control: true
+  perform_homing_on_init: false
+  feedback_timeout_ms: 100
+  ip_target_mirror: false
+  heartbeat_producer: 500
+  scale_pos_to_dev: 3160404.6401925473
+  scale_pos_from_dev: 3.1641517901931543e-07
+  scale_vel_to_dev: 3160404.6401925473
+  scale_vel_from_dev: 3.1641517901931543e-07
+  position_mode: 8
+  velocity_mode: 9
+  rpdo:
+    1:
+      enabled: true
+      cob_id: 516
+      transmission: 1
+      mapping:
+      - index: 24640
+        sub_index: 0
+      - index: 24698
+        sub_index: 0
+      - index: 24672
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 772
+      transmission: 1
+      mapping:
+      - index: 24769
+        sub_index: 1
+    3:
+      enabled: true
+      cob_id: 1028
+      transmission: 1
+      mapping:
+      - index: 24831
+        sub_index: 0
+    4:
+      enabled: false
+      cob_id: 1284
+      transmission: 1
+      mapping: []
+  tpdo:
+    1:
+      enabled: true
+      cob_id: 388
+      transmission: 1
+      mapping:
+      - index: 24641
+        sub_index: 0
+      - index: 24676
+        sub_index: 0
+      - index: 24673
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 644
+      transmission: 1
+      mapping:
+      - index: 24684
+        sub_index: 0
+      - index: 24695
+        sub_index: 0
+    3:
+      enabled: false
+      cob_id: 900
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1156
+      transmission: 1
+      mapping: []
+  sdo:
+  - index: 24672
+    sub_index: 0
+    value: 9
+  - index: 24770
+    sub_index: 1
+    value: 5
+shoulder_yaw_joint:
+  node_id: 6
+  dcf: YiyouServo_V1.4.dcfgen.eds
+  driver: ros2_canopen::Cia402Driver
+  package: canopen_402_driver
+  period: 5
+  sdo_timeout_ms: 100
+  boot_timeout_ms: 5000
+  non_transmit_timeout: 1000
+  motion_safety: true
+  enable_eyou_zero_mode_support_fallback: true
+  switching_state: 4
+  managed_by_ros2_control: true
+  perform_homing_on_init: false
+  feedback_timeout_ms: 100
+  ip_target_mirror: true
+  heartbeat_producer: 500
+  scale_pos_to_dev: 1053468.2133975157
+  scale_pos_from_dev: 9.492455370579463e-07
+  scale_vel_to_dev: 1053468.2133975157
+  scale_vel_from_dev: 9.492455370579463e-07
+  position_mode: 7
+  rpdo:
+    1:
+      enabled: true
+      cob_id: 518
+      transmission: 1
+      mapping:
+      - index: 24640
+        sub_index: 0
+      - index: 24698
+        sub_index: 0
+      - index: 24672
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 774
+      transmission: 1
+      mapping:
+      - index: 24769
+        sub_index: 1
+    3:
+      enabled: false
+      cob_id: 1030
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1286
+      transmission: 1
+      mapping: []
+  tpdo:
+    1:
+      enabled: true
+      cob_id: 390
+      transmission: 1
+      mapping:
+      - index: 24641
+        sub_index: 0
+      - index: 24676
+        sub_index: 0
+      - index: 24673
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 646
+      transmission: 1
+      mapping:
+      - index: 24684
+        sub_index: 0
+      - index: 24695
+        sub_index: 0
+    3:
+      enabled: false
+      cob_id: 902
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1158
+      transmission: 1
+      mapping: []
+  sdo:
+  - index: 24672
+    sub_index: 0
+    value: 7
+  - index: 24770
+    sub_index: 1
+    value: 5
+shoulder_pitch_joint:
+  node_id: 5
+  dcf: YiyouServo_V1.4.dcfgen.eds
+  driver: ros2_canopen::Cia402Driver
+  package: canopen_402_driver
+  period: 5
+  sdo_timeout_ms: 100
+  boot_timeout_ms: 5000
+  non_transmit_timeout: 1000
+  motion_safety: true
+  enable_eyou_zero_mode_support_fallback: true
+  switching_state: 4
+  managed_by_ros2_control: true
+  perform_homing_on_init: false
+  feedback_timeout_ms: 100
+  ip_target_mirror: true
+  heartbeat_producer: 500
+  scale_pos_to_dev: 1053468.2133975157
+  scale_pos_from_dev: 9.492455370579463e-07
+  scale_vel_to_dev: 1053468.2133975157
+  scale_vel_from_dev: 9.492455370579463e-07
+  position_mode: 7
+  rpdo:
+    1:
+      enabled: true
+      cob_id: 517
+      transmission: 1
+      mapping:
+      - index: 24640
+        sub_index: 0
+      - index: 24698
+        sub_index: 0
+      - index: 24672
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 773
+      transmission: 1
+      mapping:
+      - index: 24769
+        sub_index: 1
+    3:
+      enabled: false
+      cob_id: 1029
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1285
+      transmission: 1
+      mapping: []
+  tpdo:
+    1:
+      enabled: true
+      cob_id: 389
+      transmission: 1
+      mapping:
+      - index: 24641
+        sub_index: 0
+      - index: 24676
+        sub_index: 0
+      - index: 24673
+        sub_index: 0
+    2:
+      enabled: true
+      cob_id: 645
+      transmission: 1
+      mapping:
+      - index: 24684
+        sub_index: 0
+      - index: 24695
+        sub_index: 0
+    3:
+      enabled: false
+      cob_id: 901
+      transmission: 1
+      mapping: []
+    4:
+      enabled: false
+      cob_id: 1157
+      transmission: 1
+      mapping: []
+  sdo:
+  - index: 24672
+    sub_index: 0
+    value: 7
+  - index: 24770
+    sub_index: 1
+    value: 5

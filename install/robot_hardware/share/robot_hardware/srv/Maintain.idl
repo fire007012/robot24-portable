@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robot_hardware/srv/Maintain.srv
+// generated code does not contain a copyright notice
+
+
+module robot_hardware {
+  module srv {
+    struct Maintain_Request {
+      string joint;
+
+      string operation;
+
+      double lower;
+
+      double upper;
+
+      boolean save;
+    };
+    struct Maintain_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>mobility_control</name><version>0.2.0</version>
+  <description>ROS2 bounded base command adapter</description>
+  <maintainer email="dianhua@example.com">dianhua</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>rclpy</exec_depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <depend>rclcpp</depend><depend>ruckig</depend><depend>yaml_cpp_vendor</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

@@ -1,0 +1,4 @@
+# generated from rosidl_cmake/cmake/rosidl_cmake-extras.cmake.in
+
+set(can_driver_IDL_FILES "msg/MotorState.idl;srv/ApplyLimits.idl;srv/Init.idl;srv/Shutdown.idl;srv/Recover.idl;srv/MotorCommand.idl;srv/SetZero.idl;srv/SetZeroLimit.idl;action/MoveMotor.idl;action/HomeMotor.idl")
+set(can_driver_INTERFACE_FILES "msg/MotorState.msg;srv/ApplyLimits.srv;srv/ApplyLimits_Request.msg;srv/ApplyLimits_Response.msg;srv/Init.srv;srv/Init_Request.msg;srv/Init_Response.msg;srv/Shutdown.srv;srv/Shutdown_Request.msg;srv/Shutdown_Response.msg;srv/Recover.srv;srv/Recover_Request.msg;srv/Recover_Response.msg;srv/MotorCommand.srv;srv/MotorCommand_Request.msg;srv/MotorCommand_Response.msg;srv/SetZero.srv;srv/SetZero_Request.msg;srv/SetZero_Response.msg;srv/SetZeroLimit.srv;srv/SetZeroLimit_Request.msg;srv/SetZeroLimit_Response.msg;action/MoveMotor.action;action/HomeMotor.action")

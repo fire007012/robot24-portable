@@ -1,0 +1,9 @@
+{
+  "source": "/home/fire/ros2_ws_car",
+  "destination": "/home/fire/robot24-portable",
+  "source_deployment": "linked-install/linked-runtime",
+  "hardware_started": false,
+  "upper_config_default": "~/robot24-portable/runtime/manager.json",
+  "legacy_backup_removed": true,
+  "compatibility_links_removed": true
+}

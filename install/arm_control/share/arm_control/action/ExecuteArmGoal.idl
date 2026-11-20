@@ -1,0 +1,54 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from arm_control/action/ExecuteArmGoal.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module arm_control {
+  module action {
+    module ExecuteArmGoal_Goal_Constants {
+      const uint8 TARGET_JOINTS = 1;
+      const uint8 TARGET_NAMED = 2;
+      const uint8 TARGET_POSE = 3;
+    };
+    struct ExecuteArmGoal_Goal {
+      uint8 target_type;
+
+      sequence<string> joint_names;
+
+      sequence<double> joint_positions;
+
+      string named_target;
+
+      geometry_msgs::msg::PoseStamped pose_target;
+    };
+    module ExecuteArmGoal_Result_Constants {
+      const uint8 ERROR_NONE = 0;
+      const uint8 ERROR_INVALID_GOAL = 1;
+      const uint8 ERROR_NOT_READY = 2;
+      const uint8 ERROR_TF_FAILED = 3;
+      const uint8 ERROR_PLANNING_FAILED = 4;
+      const uint8 ERROR_EXECUTION_FAILED = 5;
+      const uint8 ERROR_PREEMPTED = 6;
+    };
+    struct ExecuteArmGoal_Result {
+      boolean success;
+
+      uint8 error_code;
+
+      string message;
+    };
+    module ExecuteArmGoal_Feedback_Constants {
+      const uint8 PHASE_VALIDATING = 1;
+      const uint8 PHASE_WAITING_READY = 2;
+      const uint8 PHASE_PLANNING = 3;
+      const uint8 PHASE_EXECUTING = 4;
+      const uint8 PHASE_STOPPING = 5;
+    };
+    struct ExecuteArmGoal_Feedback {
+      uint8 phase;
+
+      string message;
+    };
+  };
+};

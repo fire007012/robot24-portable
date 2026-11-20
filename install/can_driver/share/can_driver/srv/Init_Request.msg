@@ -1,0 +1,2 @@
+string device  # SocketCAN 设备名（如 canable0/vcan0）
+bool loopback  # 是否让当前 socket 接收自己发出的帧（测试场景常用）

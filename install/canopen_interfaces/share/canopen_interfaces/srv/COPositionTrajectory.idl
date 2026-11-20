@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from canopen_interfaces/srv/COPositionTrajectory.srv
+// generated code does not contain a copyright notice
+
+
+module canopen_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "Standalone CSP only. Empty arrays query the current command-session epoch." "\n"
+      "Otherwise provide that epoch and >=2 position/time knots; first time is zero." "\n"
+      "Positions: radians. Times: seconds from acceptance (steady clock)." "\n"
+      "Each segment is a quintic rest-to-rest move. No automatic enable or mode switch.")
+    struct COPositionTrajectory_Request {
+      uint64 epoch;
+
+      sequence<double> positions;
+
+      sequence<double> times_from_start;
+    };
+    struct COPositionTrajectory_Response {
+      boolean success;
+
+      uint64 epoch;
+
+      string message;
+    };
+  };
+};

@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "scope": "Qt production clients -> installed manager -> ROS bridge -> mock hardware",
+  "scenarios": {
+    "all": {
+      "scope": "qt_installed_ros_mock",
+      "passed": true,
+      "physical_acceptance": false,
+      "hardware_initialized": false,
+      "domain_id": 197,
+      "presets": [
+        "flippers",
+        "base",
+        "arm"
+      ],
+      "hold_ms": 1000,
+      "initial_emergency": true,
+      "unselected_faults": false,
+      "samples": 1225,
+      "wheel_motion": true,
+      "resources_remaining": 0
+    },
+    "base": {
+      "scope": "qt_installed_ros_mock",
+      "passed": true,
+      "physical_acceptance": false,
+      "hardware_initialized": false,
+      "domain_id": 197,
+      "presets": [
+        "base"
+      ],
+      "hold_ms": 1000,
+      "initial_emergency": false,
+      "unselected_faults": false,
+      "samples": 1041,
+      "wheel_motion": true,
+      "resources_remaining": 0
+    }
+  },
+  "persistent_runtime_unchanged": true,
+  "physical_acceptance": false,
+  "deployment": "/home/fire/robot24-portable",
+  "workspace": "/home/fire/ros2_ws_car",
+  "retained_workspace_directories": [
+    "build",
+    "install",
+    "log",
+    "src"
+  ],
+  "environment_mounts": [
+    ".agents",
+    ".aws",
+    ".codex",
+    ".git"
+  ]
+}

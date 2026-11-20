@@ -1,0 +1,7 @@
+
+bool success
+string message
+float64 active_zero_offset_rad
+float64 applied_min_rad
+float64 applied_max_rad
+float64 current_position_rad

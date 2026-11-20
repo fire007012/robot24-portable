@@ -1,0 +1,52 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from can_driver/action/MoveMotor.action
+// generated code does not contain a copyright notice
+
+
+module can_driver {
+  module action {
+    @verbatim (language="comment", text=
+      "goal")
+    struct MoveMotor_Goal {
+      @verbatim (language="comment", text=
+        "目标电机 ID")
+      uint16 motor_id;
+
+      @verbatim (language="comment", text=
+        "目标位置（控制层单位）")
+      double target_position;
+
+      @verbatim (language="comment", text=
+        "目标速度（控制层单位）")
+      double target_velocity;
+
+      @verbatim (language="comment", text=
+        "最大执行时长（秒）")
+      double max_duration;
+    };
+    @verbatim (language="comment", text=
+      "result")
+    struct MoveMotor_Result {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "失败原因")
+      string message;
+    };
+    @verbatim (language="comment", text=
+      "feedback")
+    struct MoveMotor_Feedback {
+      @verbatim (language="comment", text=
+        "当前位置信息")
+      double current_position;
+
+      @verbatim (language="comment", text=
+        "当前速度信息")
+      double current_velocity;
+
+      @verbatim (language="comment", text=
+        "已运行时长（秒）")
+      double elapsed_time;
+    };
+  };
+};

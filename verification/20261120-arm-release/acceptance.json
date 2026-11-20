@@ -1,0 +1,15 @@
+{
+  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "formal_state": "stopped",
+  "formal_resources": 0,
+  "physical_acceptance": false,
+  "can_interfaces": {
+    "private_interface": "can0",
+    "canopen_interface": "can1"
+  },
+  "middleware": "rmw_cyclonedds_cpp",
+  "deployed_qt_passed": true,
+  "motion_latency_sec": 0.096,
+  "host_binary_sha256": "b1006817f90448e8e5e4d5ac841fc688ea353795c952f4c13d20429627d798ec",
+  "baseline_token_state_preserved": true
+}

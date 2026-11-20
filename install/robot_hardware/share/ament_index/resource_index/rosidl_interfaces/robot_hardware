@@ -1,0 +1,12 @@
+srv/GroupOperation.idl
+srv/GroupOperation.srv
+srv/GroupOperation_Request.msg
+srv/GroupOperation_Response.msg
+srv/Maintain.idl
+srv/Maintain.srv
+srv/Maintain_Request.msg
+srv/Maintain_Response.msg
+srv/SetProfile.idl
+srv/SetProfile.srv
+srv/SetProfile_Request.msg
+srv/SetProfile_Response.msg

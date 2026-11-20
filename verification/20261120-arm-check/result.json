@@ -1,0 +1,42 @@
+{
+  "qualified": false,
+  "candidate_deployed": false,
+  "physical_acceptance": false,
+  "formal_build_version": "robot24-field-can0-20261117-3",
+  "candidate_qt": {
+    "scope": "qt_installed_ros_mock",
+    "passed": true,
+    "physical_acceptance": false,
+    "hardware_initialized": false,
+    "domain_id": 197,
+    "joint_max_displacement": {
+      "wrist_roll_joint": 0.011256026142714688,
+      "left_gripper_finger_joint": 0.071,
+      "shoulder_yaw_joint": 3.006248359976002e-06,
+      "elbow_pitch_joint": 5.423385831981875e-06,
+      "wrist_pitch_joint": 1.511470412010607e-05,
+      "wrist_yaw_joint": 2.4027522860773333e-06,
+      "shoulder_pitch_joint": 1.133307803907746e-06
+    },
+    "presets": [
+      "arm"
+    ],
+    "hold_ms": 1000,
+    "initial_emergency": false,
+    "unselected_faults": false,
+    "samples": 9248,
+    "wheel_motion": false,
+    "arm_motion": true,
+    "gripper_motion": true,
+    "neutral_stop": true,
+    "resources_remaining": 0
+  },
+  "formal_runtime_unchanged": true,
+  "formal_state": "stopped",
+  "issues": [
+    "servo_readiness missing in installed launch",
+    "old arm feedback rejects independent group faults",
+    "candidate MoveIt/FCL crash after independent group fault",
+    "single-arm Servo startup wait"
+  ]
+}

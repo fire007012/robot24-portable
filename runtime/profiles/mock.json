@@ -1,0 +1,16 @@
+{
+  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "devices": [],
+  "enable_servo": true,
+  "mode": "mock",
+  "optional_modules": [],
+  "profile_id": "mock",
+  "required_modules": [
+    "core",
+    "bridge"
+  ],
+  "startup_timeout": 120,
+  "video": false,
+  "video_required": false,
+  "config_revision": "46d234920c3054cc2b8538773b0ab2b0a1dab341e40835e78e8eb09e3c8b3117"
+}

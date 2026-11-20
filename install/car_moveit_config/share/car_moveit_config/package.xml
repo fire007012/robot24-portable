@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>car_moveit_config</name><version>0.4.0</version>
+  <description>Robot24 MoveIt 2 configuration for the unified six-axis controller.</description>
+  <maintainer email="2733239989@qq.com">dianhua</maintainer><license>BSD</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend><depend>moveit_core</depend><depend>pluginlib</depend>
+  <exec_depend>car_urdf</exec_depend><exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch_ros</exec_depend><exec_depend>xacro</exec_depend><exec_depend>python3-yaml</exec_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend><exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>moveit_kinematics</exec_depend><exec_depend>moveit_simple_controller_manager</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

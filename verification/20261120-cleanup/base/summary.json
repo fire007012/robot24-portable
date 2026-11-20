@@ -1,0 +1,16 @@
+{
+  "scope": "qt_installed_ros_mock",
+  "passed": true,
+  "physical_acceptance": false,
+  "hardware_initialized": false,
+  "domain_id": 197,
+  "presets": [
+    "base"
+  ],
+  "hold_ms": 1000,
+  "initial_emergency": false,
+  "unselected_faults": false,
+  "samples": 1041,
+  "wheel_motion": true,
+  "resources_remaining": 0
+}

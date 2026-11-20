@@ -1,0 +1,203 @@
+# =============================================================================
+# can_driver_node 硬件参数配置
+# =============================================================================
+# 本文件由 ROS 参数服务器加载（见 launch/can_driver.launch），
+# 所有参数挂载在 /can_driver_node/ 命名空间下，
+# 节点通过 pnh.getParam("joints", ...) 读取。
+# =============================================================================
+
+can_driver_node:
+
+  # 控制循环频率（Hz）
+  # CanDriverHW::read() → controller_manager::update() → CanDriverHW::write()
+  # 每秒执行的次数。100 Hz = 10 ms 一个周期，适合大多数工业电机。
+  # 若 CAN 总线负载过高可适当降低（如 50 Hz）。
+  control_frequency: 100.0
+
+  # 调试模式：true 时 direct topic 命令绕过 ros_control 回退逻辑。
+  # 行为：收到一次 direct 命令后将保持生效，直到下一次 direct 命令或 STOP/DISABLE。
+  # 注意：该模式仅用于单电机联调，默认关闭。
+  debug_bypass_ros_control: false
+
+  # 电机状态查询频率（协议层轮询频率，单位 Hz）。
+  # >0：固定频率；<=0：使用协议默认自适应策略。
+  motor_query_hz: 20.0
+
+  # PP 协议快写模式开关（CMD=0x05）。
+  # false: 使用普通写命令（CMD=0x01，带写返回）
+  # true : 位置/速度命令使用快写命令（CMD=0x05，无返回、立即生效）
+  pp_fast_write_enabled: true
+
+  # PP 协议在 position / csp 路径下，会先给 0x09 写一个“默认速度”作为预配置。
+  # 这里直接填写 rad/s；驱动会按每个 joint 的 velocity_scale 自动换算成协议 raw。
+  # 未填写时默认按 10RPM ≈ 1.0472rad/s 处理。
+  pp_position_default_velocity_rad_s: 1.0472
+  pp_csp_default_velocity_rad_s: 3
+
+  # 上电启动位置同步窗口（秒）。
+  # 启动时会读取电机当前位置并对齐 position 命令，
+  # 同时校验是否落在 URDF/rosparam 限位范围内；超限将拒绝激活驱动。
+  startup_position_sync_timeout_sec: 1.0
+
+  # 校准专用：允许 init 时当前位置临时落在 position/csp 关节限位外。
+  # true  只放开 init，方便后续 set_zero/apply_limits；release/run 和运动命令仍会被阻断，
+  #       直到当前反馈位置重新落入已生效限位。
+  # false 保持默认安全行为：启动位置超限直接拒绝 init。
+  allow_startup_position_outside_limits_for_calibration: false
+
+  # 安全策略：检测到故障位时自动发送一次 Stop，并阻断后续运动命令。
+  # 注意：该策略不会自动 Disable，便于故障排查时保持驱动在线。
+  safety_stop_on_fault: true
+
+  # 安全策略：发送运动命令前要求电机处于 enabled 状态。
+  # true  : 未使能时直接阻断运动命令（推荐）
+  # false : 不检查 enabled，保持旧行为
+  safety_require_enabled_for_motion: true
+
+  # 防误动策略：位置模式单周期最大步进（rad）。
+  # <=0 表示关闭该限制；>0 时超出步进会被截断并告警。
+  max_position_step_rad: 0.0
+
+  # 安全策略：CAN 设备从掉线恢复后是否保持一个控制周期并清空直通命令。
+  # true  : 恢复首周期不下发运动命令，避免链路恢复瞬间误动作
+  # false : 恢复后立即按当前命令继续下发
+  safety_hold_after_device_recover: true
+
+  # lifecycle init 时当前 socket 是否接收自己发出的帧。
+  # 默认 false；仅在 vcan/loopback 测试场景下建议打开。
+  init_loopback: false
+
+  # PP 零点本地持久化：将 zero offset 保存到本机文件。
+  # 下次初始化时只作为驱动侧软件 offset 生效，不再写 0x3B。
+  # 只有显式调用 set_zero/apply_to_motor=true 才会写电机 0x3B。
+  pp_local_zero_offset_persistence_enabled: true
+  # apply_to_motor=true 时，是否额外发送 0x4D 持久化到电机非易失存储。
+  # false: 立即写入当前电机 offset，但不做 EEPROM 持久化，也不会因为 0x4D 失败而回滚
+  # true : 保持旧行为，写 offset 后继续发 0x4D
+  pp_zero_offset_persist_on_apply_to_motor: false
+  # pp_local_zero_offset_file: /home/dianhua/.ros/can_driver_pp_zero_offsets.txt
+
+  # --------------------------------------------------------------------------
+  # joints：关节列表
+  # --------------------------------------------------------------------------
+  # 每个条目描述一个"逻辑关节"到"物理电机"的映射关系。
+  # ros_control 通过 joint name 与 URDF、MoveIt moveit_config 三处��齐，
+  # 因此 name 字段必须与 URDF 中的 <joint name="..."> 完全一致。
+  # --------------------------------------------------------------------------
+  joints:
+
+    # # --- 机械臂关节（PP 协议，CSP 模式）---
+    # # 使用 PP 协议（EyouCan），CSP 周期同步位置模式
+    # # 驱动启动时自动调用 setMode(CSP)，失败则中止初始化
+
+    # - name: shoulder_pitch_joint  # 大臂俯仰（第 2 轴）
+    #   motor_id: 0x05
+    #   protocol: PP
+    #   can_device: can0
+    #   control_mode: csp
+    #   position_scale: 65536  # 16-bit 编码器，PPR → 驱动自动换算为 2π/65536 rad/count
+    #   velocity_scale: 65536
+    #   ip_max_velocity: 1.0
+    #   ip_max_acceleration: 2.0
+    #   ip_max_jerk: 10.0
+    #   ip_goal_tolerance: 0.001
+
+    - name: elbow_pitch_joint   # 小臂俯仰（第 3 轴）
+      motor_id: 0x13
+      protocol: PP
+      can_device: can0
+      control_mode: csp
+      position_scale: 65536  # 16-bit 编码器，PPR → 驱动自动换算为 2π/65536 rad/count
+      velocity_scale: 65536
+      direction_sign: -1.0   # 物理方向与系统正方向相反时填写 -1.0
+      ip_max_velocity: 1.0
+      ip_max_acceleration: 0.8
+      ip_max_jerk: 4.0
+      ip_goal_tolerance: 0.001
+
+
+    - name: wrist_pitch_joint    # 腕部俯仰（第 4 轴）
+      motor_id: 0x14
+      protocol: PP
+      can_device: can0
+      control_mode: csp
+      position_scale: 65536  # 16-bit 编码器，PPR → 驱动自动换算为 2π/65536 rad/count
+      velocity_scale: 65536
+      ip_max_velocity: 1.0
+      ip_max_acceleration: 2.0
+      ip_max_jerk: 10.0
+      ip_goal_tolerance: 0.001
+
+    - name: wrist_roll_joint     # 腕部滚转（第 5 轴）
+      motor_id: 0x16
+      protocol: PP
+      can_device: can0
+      control_mode: csp
+      position_scale: 65536  # 16-bit 编码器，PPR → 驱动自动换算为 2π/65536 rad/count
+      velocity_scale: 65536
+
+    - name: wrist_yaw_joint      # 腕部偏航（第 6 轴）
+      motor_id: 0x15
+      protocol: PP
+      can_device: can0
+      control_mode: csp
+      position_scale: 65536  # 16-bit 编码器，PPR → 驱动自动换算为 2π/65536 rad/count
+      velocity_scale: 65536
+      direction_sign: -1.0
+
+    - name: left_gripper_finger_joint  # 左夹爪（第 7 轴）
+      motor_id: 0x17
+      protocol: PP
+      can_device: can0
+      control_mode: csp
+      # 夹爪在 URDF/MoveIt 中是 prismatic，命令单位是 m。
+      # 这里不能填 65536；应填写 raw * scale = m。
+      # 当前按实测 141.9 deg 电机转角 = 46 mm 夹爪行程配置：
+      # 0.046 / (65536 * 141.9 / 360) = 1.7807297172304439e-6 m/count。
+      # 若实机传动比不同，只校准这两个 scale。
+      position_scale: 0.0000017807297172304439
+      velocity_scale: 0.0000017807297172304439
+      pp_position_default_velocity: 0.05
+      pp_csp_default_velocity: 0.05
+
+    # --- 底盘履带关节（DM 协议，速度模式）---
+    # 达妙履带只作为 velocity 语义关节接入，由协议后端自行决定具体报文格式。
+    # 硬件信息：输出轴 14 位编码器，对应 16384 脉冲/圈。
+    # 上层接口语义：
+    # - 速度命令 topic / 控制器输入按 rad/s 使用
+    # - 当前 DamiaoCan 在线上发送的是 float32(rad/s)
+    # 注意：当前 DamiaoCan 后端内部使用 SI 粒度（1e-4 rad / rad/s）做命令与反馈换算，
+    # 这里不要直接把 position_scale / velocity_scale 改成 16384，
+    # 否则会连同速度命令换算一起改变，导致 DM 控制量失真。
+
+    - name: left_front_wheel_joint
+      motor_id: 0x07
+      master_id: 0x08  # 可选：填写电机当前反馈使用的 Master ID；默认 0x000
+      protocol: DM
+      can_device: can0
+      control_mode: velocity
+      direction_sign: 1.0
+
+    - name: right_front_wheel_joint
+      motor_id: 0x05
+      master_id: 0x06  # 驱动只按此 ID 接收反馈，不会改写电机寄存器
+      protocol: DM
+      can_device: can0
+      control_mode: velocity
+      direction_sign: -1.0
+
+    # --- 可选 ECB 关节（仍然走标准 can_driver.yaml / can_driver.launch）---
+    # 是否启用 ECB 由 joint 自身的 protocol: ECB 决定，不再单独维护专用配置文件。
+    # 若当前机器只接 ECB，请在本标准 joints 列表中保留 ECB 条目，并移除/注释未接入的 SocketCAN 关节。
+    # ECB_AUTO_PROBE_BEGIN
+    # ECB_AUTO_PROBE_END
+
+    # --------------------------------------------------------------------------
+    # 可选字段（未填写时默认 1.0）：
+    #   position_scale / velocity_scale 支持两种填写方式：
+    #   1. 直接填换算系数（小数），含义：raw * scale = rad
+    #      示例：position_scale: 9.587379924285257e-05   # = 2π/65536
+    #   2. 填每圈脉冲数 PPR（>=2 的整数），驱动自动换算为 2π/PPR
+    #      示例：position_scale: 65536                   # 16-bit 编码器
+    #   direction_sign 仅用于方向修正，只允许填写 1.0 或 -1.0
+    # --------------------------------------------------------------------------

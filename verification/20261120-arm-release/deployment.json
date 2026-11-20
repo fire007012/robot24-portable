@@ -1,0 +1,15 @@
+{
+  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "previous_build_version": "robot24-field-arm-dualcan-20261120-1",
+  "can_interfaces": {
+    "private_interface": "can0",
+    "canopen_interface": "can1"
+  },
+  "preserved_baseline_token_state": true,
+  "hardware_started": false,
+  "hardware_identity_acceptance": "requires actual CANopen readback; unchanged",
+  "profiles": {
+    "hardware": "13038840725295881a94ff325b029d5c6085aeedd1c5ae536dfa5e4e014eea12",
+    "mock": "46d234920c3054cc2b8538773b0ab2b0a1dab341e40835e78e8eb09e3c8b3117"
+  }
+}

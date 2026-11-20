@@ -1,0 +1,6 @@
+uint16 motor_id
+float64 min_position_rad
+float64 max_position_rad
+bool use_urdf_limits
+bool apply_to_motor
+bool require_current_inside_limits

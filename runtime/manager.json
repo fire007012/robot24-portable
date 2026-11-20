@@ -1,0 +1,19 @@
+{
+  "bind": "0.0.0.0",
+  "bridge_bind": "0.0.0.0",
+  "build_manifest": "../install/release.json",
+  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "config_root": "profiles",
+  "control_endpoint": {
+    "host": "127.0.0.1",
+    "port": 9090,
+    "protocol_version": 2
+  },
+  "enable_config_transactions": false,
+  "network_policy_confirmed": true,
+  "port": 9091,
+  "robot_id": "robot24",
+  "setup": "../install/setup.bash",
+  "state_dir": "state",
+  "token_file": "manager.token"
+}

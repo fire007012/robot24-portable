@@ -1,0 +1,39 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from can_driver/srv/MotorCommand.srv
+// generated code does not contain a copyright notice
+
+
+module can_driver {
+  module srv {
+    module MotorCommand_Request_Constants {
+      @verbatim (language="comment", text=
+        "command 常量")
+      const uint8 CMD_ENABLE = 0;
+      const uint8 CMD_DISABLE = 1;
+      const uint8 CMD_STOP = 2;
+      @verbatim (language="comment", text=
+        "value: 0=position  1=velocity  2=csp")
+      const uint8 CMD_SET_MODE = 3;
+    };
+    struct MotorCommand_Request {
+      @verbatim (language="comment", text=
+        "电机 ID")
+      uint16 motor_id;
+
+      @verbatim (language="comment", text=
+        "指令类型，见下方 CMD_* 常量")
+      uint8 command;
+
+      @verbatim (language="comment", text=
+        "指令参数（例如速度、位置或 mode 值）")
+      double value;
+    };
+    struct MotorCommand_Response {
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "失败时返回原因")
+      string message;
+    };
+  };
+};

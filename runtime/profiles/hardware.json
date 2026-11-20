@@ -1,0 +1,40 @@
+{
+  "baseline": "commissioning-arm-registered.yaml",
+  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "can_interfaces": {
+    "canopen_interface": "can1",
+    "private_interface": "can0"
+  },
+  "devices": [
+    "can0",
+    "can1"
+  ],
+  "enable_servo": true,
+  "group_devices": {
+    "base": [
+      "can0"
+    ],
+    "gripper": [
+      "can0"
+    ],
+    "flippers": [
+      "can1"
+    ],
+    "arm": [
+      "can0",
+      "can1"
+    ]
+  },
+  "mode": "hardware",
+  "optional_modules": [],
+  "profile_id": "hardware",
+  "required_modules": [
+    "core",
+    "bridge"
+  ],
+  "robot_id": "robot24",
+  "startup_timeout": 90,
+  "video": false,
+  "video_required": false,
+  "config_revision": "2a5fe4b04645439adcd5b751366c4b18504fbfe218fd34595caeac7551f2ac35"
+}
