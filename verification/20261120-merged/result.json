@@ -1,0 +1,207 @@
+{
+  "verified_at": "2026-11-20T12:52:56.641868+00:00",
+  "scope": "current Qt production client and deployed ROS stack with mock hardware",
+  "build_version": "robot24-field-full-dualcan-20261120-local2",
+  "source_revisions": {
+    "qt-upper": "9a201895c63831f51b09b72c2bc6777c2f700167",
+    "new-robot24": "1dd6473c2533409319b3bcf59b2d118ac9728fc9"
+  },
+  "tests": {
+    "lower_manager": 54,
+    "lower_tools": 42,
+    "upper_communication_ctest": 9,
+    "upper_gui_ctest": 2,
+    "upper_tools": 18
+  },
+  "scenarios": {
+    "all": {
+      "scope": "qt_installed_ros_mock",
+      "passed": true,
+      "physical_acceptance": false,
+      "hardware_initialized": false,
+      "domain_id": 197,
+      "middleware": "rmw_cyclonedds_cpp",
+      "joint_max_displacement": {},
+      "presets": [
+        "flippers",
+        "base",
+        "arm"
+      ],
+      "software_presets": [
+        "flippers",
+        "base",
+        "arm"
+      ],
+      "hold_ms": 500,
+      "initial_emergency": true,
+      "unselected_faults": false,
+      "samples": 749,
+      "wheel_motion": true,
+      "arm_motion": false,
+      "gripper_motion": false,
+      "neutral_stop": false,
+      "resources_remaining": 0,
+      "process_crashes": []
+    },
+    "arm": {
+      "scope": "qt_installed_ros_mock",
+      "passed": true,
+      "physical_acceptance": false,
+      "hardware_initialized": false,
+      "domain_id": 197,
+      "middleware": "rmw_cyclonedds_cpp",
+      "joint_max_displacement": {
+        "wrist_roll_joint": 0.022282873841638864,
+        "left_gripper_finger_joint": 0.00045999668,
+        "shoulder_yaw_joint": 5.951098175302155e-06,
+        "elbow_pitch_joint": 1.0695761774925927e-05,
+        "wrist_pitch_joint": 2.9888713940384726e-05,
+        "wrist_yaw_joint": 4.754295584755736e-06,
+        "shoulder_pitch_joint": 2.2349493922768637e-06
+      },
+      "presets": [
+        "arm"
+      ],
+      "software_presets": [
+        "arm"
+      ],
+      "hold_ms": 500,
+      "initial_emergency": false,
+      "unselected_faults": false,
+      "samples": 4771,
+      "wheel_motion": false,
+      "arm_motion": true,
+      "gripper_motion": true,
+      "neutral_stop": true,
+      "motion_latency_sec": 0.13,
+      "resources_remaining": 0,
+      "process_crashes": []
+    },
+    "base-fault": {
+      "scope": "qt_installed_ros_mock",
+      "passed": true,
+      "physical_acceptance": false,
+      "hardware_initialized": false,
+      "domain_id": 197,
+      "middleware": "rmw_cyclonedds_cpp",
+      "joint_max_displacement": {},
+      "presets": [
+        "base"
+      ],
+      "software_presets": [
+        "flippers",
+        "base",
+        "arm"
+      ],
+      "hold_ms": 500,
+      "initial_emergency": false,
+      "unselected_faults": true,
+      "samples": 848,
+      "wheel_motion": true,
+      "arm_motion": false,
+      "gripper_motion": false,
+      "neutral_stop": false,
+      "resources_remaining": 0,
+      "process_crashes": []
+    }
+  },
+  "hardware_preflight": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "can_topology",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "build_version",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "setup",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "release_manifest",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "real_baseline",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "device:can0",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "device:can1",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "port:9090",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "port:18080",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "ros_packages",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      }
+    ]
+  },
+  "physical_acceptance": false,
+  "final_snapshot": {
+    "software_state": "stopped",
+    "profile_id": null,
+    "config_revision": null,
+    "build_version": "robot24-field-full-dualcan-20261120-local2",
+    "control_endpoint": {
+      "host": "127.0.0.1",
+      "port": 9090,
+      "protocol_version": 2,
+      "legacy_readonly_version": 1
+    },
+    "runtime": null,
+    "safety": null,
+    "modules": {},
+    "observed_at": null,
+    "operation_id": "473e46fd-a7d9-4872-a2b7-1c6d83065723",
+    "recovery_required": false
+  },
+  "final_resources": [],
+  "hardware_software_lifecycle": {
+    "passed": true,
+    "evidence": "hardware-smoke.json",
+    "physical_motion_acceptance": false
+  },
+  "fresh_clone_check": {
+    "passed": true,
+    "checks": [
+      "prepare",
+      "release files",
+      "ROS package ownership",
+      "ELF dependencies"
+    ]
+  }
+}

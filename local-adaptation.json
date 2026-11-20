@@ -1,0 +1,34 @@
+{
+  "version": "robot24-field-full-dualcan-20261120-local2",
+  "upstream_version": "robot24-field-arm-dualcan-20261120-2",
+  "upstream_commit": "4f1b40c680abdfe676ceeb5817674bbd6d5c25bc",
+  "adapted_at": "2026-11-20T12:19:16.791728+00:00",
+  "baseline_hashes": {
+    "commissioning-90aa2046aed47be25e15c9550664cc2662259ad300e651544ad4e086c5fedca3.yaml": "90aa2046aed47be25e15c9550664cc2662259ad300e651544ad4e086c5fedca3",
+    "commissioning-arm-registered.yaml": "abd21b8eb8314895b52a277977dc958f7fa23e1c72d1763584d87a3e60a4cb5d",
+    "commissioning-48a4bce0f1c8abd7738b99fe33359225c606034732bcf6f66da3fc809c93b900.yaml": "48a4bce0f1c8abd7738b99fe33359225c606034732bcf6f66da3fc809c93b900",
+    "commissioning-full-registered.yaml": "68aeb4110217a3d6779ea91513165c3cf4afd1f1161d20324519637b45da8d39"
+  },
+  "dependencies": [
+    "moveit_servo",
+    "rmw_cyclonedds_cpp",
+    "cyclonedds",
+    "iceoryx_binding_c",
+    "iceoryx_hoofs",
+    "iceoryx_posh"
+  ],
+  "hardware_mapping": {
+    "canopen_interface": "can1",
+    "private_interface": "can0"
+  },
+  "flippers_registration": {
+    "baseline": "commissioning-full-registered.yaml",
+    "sha256": "68aeb4110217a3d6779ea91513165c3cf4afd1f1161d20324519637b45da8d39",
+    "confirmation": "operator confirmed current code parameters measured and working",
+    "device_io_performed": false
+  },
+  "source_revisions": {
+    "qt-upper": "9a201895c63831f51b09b72c2bc6777c2f700167",
+    "new-robot24": "1dd6473c2533409319b3bcf59b2d118ac9728fc9"
+  }
+}

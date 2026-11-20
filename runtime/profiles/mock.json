@@ -1,5 +1,5 @@
 {
-  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "build_version": "robot24-field-full-dualcan-20261120-local2",
   "devices": [],
   "enable_servo": true,
   "mode": "mock",
@@ -12,5 +12,5 @@
   "startup_timeout": 120,
   "video": false,
   "video_required": false,
-  "config_revision": "46d234920c3054cc2b8538773b0ab2b0a1dab341e40835e78e8eb09e3c8b3117"
+  "config_revision": "e79afd556ac80f8be85a12c0c71d404ea38c4520ec015cba0af49f97b48a25b8"
 }

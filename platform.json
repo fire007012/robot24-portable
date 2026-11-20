@@ -15,5 +15,5 @@
     "UBUNTU_CODENAME": "jammy"
   },
   "ros": "humble",
-  "build_version": "robot24-field-arm-dualcan-20261120-2"
+  "build_version": "robot24-field-full-dualcan-20261120-local2"
 }

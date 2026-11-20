@@ -1,0 +1,553 @@
+{
+  "scope": "hardware software lifecycle only; no init/enable/resume/motion",
+  "physical_motion_acceptance": false,
+  "preflight": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "can_topology",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "build_version",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "setup",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "release_manifest",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "real_baseline",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "device:can0",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "device:can1",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "port:9090",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "port:18080",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      },
+      {
+        "name": "ros_packages",
+        "ok": true,
+        "code": null,
+        "hint": ""
+      }
+    ]
+  },
+  "start": {
+    "operation_id": "68032e02-9297-4d99-8676-236cb6c3b280",
+    "method": "start",
+    "state": "succeeded",
+    "phase": "complete",
+    "robot_id": "robot24",
+    "profile_id": "hardware",
+    "config_revision": "37d45e9738f7369175bf5ec84b79af42fd4eb9d7bbaccf131d787246c6484b35",
+    "modules": {
+      "core": {
+        "ok": true,
+        "missing_services": [],
+        "missing_controllers": [],
+        "missing_backends": [],
+        "runtime_readable": true,
+        "runtime_age_seconds": 0.054,
+        "arm_action_ready": true
+      },
+      "bridge": {
+        "ok": true,
+        "robot_id": "robot24"
+      }
+    },
+    "error": null,
+    "retryable": false,
+    "created_at": 1795179543.5757415,
+    "updated_at": 1795179550.1621952
+  },
+  "running_snapshot": {
+    "software_state": "ready",
+    "profile_id": "hardware",
+    "config_revision": "37d45e9738f7369175bf5ec84b79af42fd4eb9d7bbaccf131d787246c6484b35",
+    "build_version": "robot24-field-full-dualcan-20261120-local2",
+    "control_endpoint": {
+      "host": "127.0.0.1",
+      "port": 9090,
+      "protocol_version": 2,
+      "legacy_readonly_version": 1
+    },
+    "runtime": {
+      "state": "Stopped",
+      "input_epochs": {
+        "arm": 0,
+        "flippers": 0,
+        "base": 0,
+        "gripper": 0
+      },
+      "groups": {
+        "arm": "Stopped",
+        "flippers": "Stopped",
+        "base": "Stopped",
+        "gripper": "Stopped"
+      },
+      "diagnostics": {
+        "state": 0,
+        "epoch": 0,
+        "reason": "stopped",
+        "samples": 0,
+        "period_min_ns": 0,
+        "period_mean_ns": 0,
+        "period_max_ns": 0,
+        "period_over_7_5ms": 0,
+        "configuration_version": "group-policy-v2",
+        "global_inhibit": false,
+        "owner_required": true,
+        "owner_fresh": true,
+        "global_reason": "",
+        "groups": {
+          "arm": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          },
+          "base": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          },
+          "flippers": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          },
+          "gripper": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          }
+        },
+        "aggregate_state": "Stopped",
+        "axes": {
+          "elbow_pitch_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_front_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_front_wheel_joint": {
+            "group": "base",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_gripper_finger_joint": {
+            "group": "gripper",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_rear_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "right_front_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "right_front_wheel_joint": {
+            "group": "base",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "right_rear_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "shoulder_pitch_joint": {
+            "group": "arm",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "shoulder_yaw_joint": {
+            "group": "arm",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "wrist_pitch_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "wrist_roll_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "wrist_yaw_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          }
+        },
+        "associations": [],
+        "events": [],
+        "readable": true,
+        "observed_monotonic": 14438.386143612
+      },
+      "operations": {},
+      "profile": "csv",
+      "arm_profile": "trajectory",
+      "maintenance_dirty_axes": []
+    },
+    "safety": {
+      "hardware_initialized": false,
+      "hardware_enabled": false,
+      "hardware_components": {
+        "CanDriverSystem": 1,
+        "RobotCanopenSystem": 1
+      },
+      "groups": {
+        "arm": "Stopped",
+        "flippers": "Stopped",
+        "base": "Stopped",
+        "gripper": "Stopped"
+      },
+      "global_inhibit": false,
+      "emergency": {
+        "active": false,
+        "source": ""
+      }
+    },
+    "modules": {
+      "core": {
+        "ok": true,
+        "missing_services": [],
+        "missing_controllers": [],
+        "missing_backends": [],
+        "runtime_readable": true,
+        "runtime_age_seconds": 0.054,
+        "arm_action_ready": true
+      },
+      "bridge": {
+        "ok": true,
+        "robot_id": "robot24"
+      }
+    },
+    "observed_at": 1795179549.7132926,
+    "operation_id": "68032e02-9297-4d99-8676-236cb6c3b280",
+    "recovery_required": false
+  },
+  "stable_snapshot": {
+    "software_state": "ready",
+    "profile_id": "hardware",
+    "config_revision": "37d45e9738f7369175bf5ec84b79af42fd4eb9d7bbaccf131d787246c6484b35",
+    "build_version": "robot24-field-full-dualcan-20261120-local2",
+    "control_endpoint": {
+      "host": "127.0.0.1",
+      "port": 9090,
+      "protocol_version": 2,
+      "legacy_readonly_version": 1
+    },
+    "runtime": {
+      "state": "Stopped",
+      "input_epochs": {
+        "arm": 0,
+        "flippers": 0,
+        "base": 0,
+        "gripper": 0
+      },
+      "groups": {
+        "arm": "Stopped",
+        "flippers": "Stopped",
+        "base": "Stopped",
+        "gripper": "Stopped"
+      },
+      "diagnostics": {
+        "state": 0,
+        "epoch": 0,
+        "reason": "stopped",
+        "samples": 0,
+        "period_min_ns": 0,
+        "period_mean_ns": 0,
+        "period_max_ns": 0,
+        "period_over_7_5ms": 0,
+        "configuration_version": "group-policy-v2",
+        "global_inhibit": false,
+        "owner_required": true,
+        "owner_fresh": true,
+        "global_reason": "",
+        "groups": {
+          "arm": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          },
+          "base": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          },
+          "flippers": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          },
+          "gripper": {
+            "state": 0,
+            "epoch": 1,
+            "ready": false,
+            "reason": "configuration changed",
+            "blockers": []
+          }
+        },
+        "aggregate_state": "Stopped",
+        "axes": {
+          "elbow_pitch_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_front_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_front_wheel_joint": {
+            "group": "base",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_gripper_finger_joint": {
+            "group": "gripper",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "left_rear_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "right_front_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "right_front_wheel_joint": {
+            "group": "base",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "right_rear_arm_joint": {
+            "group": "flippers",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "shoulder_pitch_joint": {
+            "group": "arm",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "shoulder_yaw_joint": {
+            "group": "arm",
+            "backend": "RobotCanopenSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "wrist_pitch_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "wrist_roll_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          },
+          "wrist_yaw_joint": {
+            "group": "arm",
+            "backend": "CanDriverSystem",
+            "ready": false,
+            "warning_count": 0,
+            "reason": "not reported"
+          }
+        },
+        "associations": [],
+        "events": [],
+        "readable": true,
+        "observed_monotonic": 14443.685123573
+      },
+      "operations": {},
+      "profile": "csv",
+      "arm_profile": "trajectory",
+      "maintenance_dirty_axes": []
+    },
+    "safety": {
+      "hardware_initialized": false,
+      "hardware_enabled": false,
+      "hardware_components": {
+        "CanDriverSystem": 1,
+        "RobotCanopenSystem": 1
+      },
+      "groups": {
+        "arm": "Stopped",
+        "flippers": "Stopped",
+        "base": "Stopped",
+        "gripper": "Stopped"
+      },
+      "global_inhibit": false,
+      "emergency": {
+        "active": false,
+        "source": ""
+      }
+    },
+    "modules": {
+      "core": {
+        "ok": true,
+        "missing_services": [],
+        "missing_controllers": [],
+        "missing_backends": [],
+        "runtime_readable": true,
+        "runtime_age_seconds": 0.002,
+        "arm_action_ready": true
+      },
+      "bridge": {
+        "ok": true,
+        "robot_id": "robot24"
+      }
+    },
+    "observed_at": 1795179554.9620204,
+    "operation_id": "68032e02-9297-4d99-8676-236cb6c3b280",
+    "recovery_required": false
+  },
+  "stop": {
+    "operation_id": "473e46fd-a7d9-4872-a2b7-1c6d83065723",
+    "method": "stop",
+    "state": "succeeded",
+    "phase": "complete",
+    "robot_id": "robot24",
+    "profile_id": "hardware",
+    "config_revision": "37d45e9738f7369175bf5ec84b79af42fd4eb9d7bbaccf131d787246c6484b35",
+    "modules": {},
+    "error": null,
+    "retryable": false,
+    "created_at": 1795179555.6030767,
+    "updated_at": 1795179558.102296
+  },
+  "final_snapshot": {
+    "software_state": "stopped",
+    "profile_id": null,
+    "config_revision": null,
+    "build_version": "robot24-field-full-dualcan-20261120-local2",
+    "control_endpoint": {
+      "host": "127.0.0.1",
+      "port": 9090,
+      "protocol_version": 2,
+      "legacy_readonly_version": 1
+    },
+    "runtime": null,
+    "safety": null,
+    "modules": {},
+    "observed_at": null,
+    "operation_id": "473e46fd-a7d9-4872-a2b7-1c6d83065723",
+    "recovery_required": false
+  },
+  "resources_remaining": 0,
+  "passed": true
+}

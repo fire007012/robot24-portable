@@ -1,6 +1,6 @@
 {
-  "baseline": "commissioning-arm-registered.yaml",
-  "build_version": "robot24-field-arm-dualcan-20261120-2",
+  "baseline": "commissioning-full-registered.yaml",
+  "build_version": "robot24-field-full-dualcan-20261120-local2",
   "can_interfaces": {
     "canopen_interface": "can1",
     "private_interface": "can0"
@@ -36,5 +36,5 @@
   "startup_timeout": 90,
   "video": false,
   "video_required": false,
-  "config_revision": "2a5fe4b04645439adcd5b751366c4b18504fbfe218fd34595caeac7551f2ac35"
+  "config_revision": "37d45e9738f7369175bf5ec84b79af42fd4eb9d7bbaccf131d787246c6484b35"
 }
